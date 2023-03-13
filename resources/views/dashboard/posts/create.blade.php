@@ -46,7 +46,8 @@
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Sampul</label>
-            <input class="form-control @error('image') is-invalid @enderror" name="image" type="file" id="image">
+            <img class="img-fluid img-preview mb-2 col-sm-5">
+            <input class="form-control @error('image') is-invalid @enderror" name="image" type="file" id="image" onchange="previewImage()">
             @error('image')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -66,7 +67,7 @@
         <button type="submit" class="btn btn-primary">Create Post</button>
     </form>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     const title = document.querySelector('#title');
     const slug = document.querySelector('#slug');
@@ -80,6 +81,20 @@
     document.addEventListener('trix-file-accept', function (event) {
         event.preventDefault();
     })
+
+
+    function previewImage() {
+        const image = document.querySelector('#image');
+        const imgPre = document.querySelector('.img-preview');
+
+        imgPre.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+        oFReader.onload = function(oFREvent){
+            imgPre.src = oFREvent.target.result;
+        }
+    }
 
 </script>
 
