@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\AdminCategoryControllers;
 
 // use App\Models\Post;
 
@@ -74,3 +75,5 @@ Route::get('/dashboard', function(){
 })->middleware('auth');
 Route::get('/dashboard/posts/cekSlug',[DashboardPostController::class, 'cekSlug'])->middleware('auth');
 Route::resource('dashboard/posts', DashboardPostController::class)->middleware('auth');
+
+Route::resource('/dashboard/categories', AdminCategoryControllers::class)->except('show')->middleware('auth')->middleware('admin');

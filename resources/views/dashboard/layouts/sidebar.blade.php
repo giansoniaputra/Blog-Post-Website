@@ -14,5 +14,16 @@
                 </a>
             </li>
         </ul>
+        <h6 class="sidebar-heading d-flax justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Administrator</span>
+            <ul class="nav flex-column mt-2">
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}" href="/dashboard/categories">
+                        <span data-feather="grid" class="align-text-bottom"></span>
+                        Categories
+                    </a>
+                </li>
+            </ul>
+        </h6>
     </div>
 </nav>
