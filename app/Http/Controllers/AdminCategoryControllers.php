@@ -15,7 +15,8 @@ class AdminCategoryControllers extends Controller
         $data = [
             'categories' => Category::all(),
         ];
-       return view('dashboard.categories.index', $data);
+        $this->authorize('admin');
+        return view('dashboard.categories.index', $data);
     }
 
     /**

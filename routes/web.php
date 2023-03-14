@@ -76,4 +76,4 @@ Route::get('/dashboard', function(){
 Route::get('/dashboard/posts/cekSlug',[DashboardPostController::class, 'cekSlug'])->middleware('auth');
 Route::resource('dashboard/posts', DashboardPostController::class)->middleware('auth');
 
-Route::resource('/dashboard/categories', AdminCategoryControllers::class)->except('show')->middleware('auth')->middleware('admin');
+Route::resource('/dashboard/categories', AdminCategoryControllers::class)->except('show')->middleware('admin');
